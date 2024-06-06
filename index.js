@@ -144,3 +144,24 @@ function init() {
 
 }
 init();
+
+
+var targetClassName = 'KQTNS6Ni';   
+var callback = function(mutationsList, observer) {  
+    for(var mutation of mutationsList) {  
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {  
+            mutation.addedNodes.forEach(function(addedNode) {  
+                if (addedNode.nodeType === 1 && addedNode.tagName.toLowerCase() === 'div') {  
+                    if (addedNode.classList.contains(targetClassName)) {  
+                        console.log('find class');
+                        addedNode.click();  
+                    }  
+                }  
+            });  
+        }  
+    }  
+};  
+var observer = new MutationObserver(callback);  
+var config = { childList: true, subtree: true };  
+var targetNode = document.body; 
+observer.observe(targetNode, config);
