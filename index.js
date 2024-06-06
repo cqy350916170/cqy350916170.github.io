@@ -12,7 +12,6 @@ const observer = new MutationObserver((mutationsList) => {
         if (mutation.type === "childList" && mutation.addedNodes.length) {
             let dom = mutation.addedNodes[0];
             let { user, common } = dom[propsId].children.props.message.payload;
-            console.log(common.anchor_fold_type_v2);
             if (user.short_id) {
                 let message_info = getUser(user);
                 if (common.anchor_fold_type_v2 === "1") {
