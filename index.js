@@ -142,6 +142,7 @@ function init() {
     };
     ws.onopen = () => {
         console.log("连接ws成功:" + wsurl);
+        console.log("test");
         observer.observe(roomJoinDom, { childList: true });
         chatObserverrom.observe(chatDom, { childList: true });
     };
