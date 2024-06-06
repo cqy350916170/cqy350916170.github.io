@@ -146,22 +146,15 @@ function init() {
 init();
 
 
-var targetClassName = 'KQTNS6Ni';   
-var callback = function(mutationsList, observer) {  
-    for(var mutation of mutationsList) {  
-        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {  
-            mutation.addedNodes.forEach(function(addedNode) {  
-                if (addedNode.nodeType === 1 && addedNode.tagName.toLowerCase() === 'div') {  
-                    if (addedNode.classList.contains(targetClassName)) {  
-                        console.log('find class');
-                        addedNode.click();  
-                    }  
-                }  
-            });  
-        }  
-    }  
-};  
-var observer = new MutationObserver(callback);  
-var config = { childList: true, subtree: true };  
-var targetNode = document.body; 
-observer.observe(targetNode, config);
+// 模拟鼠标移动  
+setInterval(function() {  
+    var x = Math.floor(Math.random() * window.innerWidth);  
+    var y = Math.floor(Math.random() * window.innerHeight);  
+    var event = new MouseEvent('mousemove', {  
+        'clientX': x,  
+        'clientY': y,  
+        'bubbles': true,  
+        'cancelable': true  
+    });  
+    window.dispatchEvent(event);  
+}, 30000);
