@@ -14,6 +14,7 @@ const observer = new MutationObserver((mutationsList) => {
             let { user, common } = dom[propsId].children.props.message.payload;
             if (user.short_id) {
                 let message_info = getUser(user);
+                console.log(common.anchor_fold_type_v2);
                 if (common.anchor_fold_type_v2 === "1") {
                     message_info.message_type = "like";
                     message_info.message_describe = `${message_info.user_nickName} 为主播点赞`;
