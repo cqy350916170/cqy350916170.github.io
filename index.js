@@ -81,8 +81,6 @@ function createMessage() {
         user_nickName: null,
         user_avatar: null,
         user_gender: null,
-        user_is_admin: null,
-        user_is_super_admin: null,
         user_level_value: null,
         user_level_icon: null,
         user_fans_light_level_value: null,
@@ -108,8 +106,6 @@ function getUser(user) {
         user_nickName: user.nickname,
         user_avatar: user.avatar_thumb.url_list[0],
         user_gender: user.gender === 1 ? "男" : "女",
-        user_is_admin: user.user_attr.is_admin ? "y" : "n",
-        user_is_super_admin: user.user_attr.is_super_admin ? "y" : "n", // 超级管理员
     };
 
     user.badge_image_list.map((item) => {
